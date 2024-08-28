@@ -12,6 +12,5 @@ export type ColorFamily = keyof typeof theme;
 type Theme = typeof theme;
 
 declare module "styled-components" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface -- Styled component use extends, so is okay to be empty
   export interface DefaultTheme extends Theme {}
 }
