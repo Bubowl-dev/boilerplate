@@ -1,4 +1,4 @@
-import { roboto } from './_roboto';
-import { gotham } from './_gotham';
+import { hankenGrotesk } from "./_hanken";
+import { inter } from "./_inter";
 
-export const fontNames = `${roboto.variable} ${gotham.variable}`;
+export const fontNames = `${hankenGrotesk.variable} ${inter.variable}`;
