@@ -1,13 +1,13 @@
-import React, { FC, ReactNode, useEffect, useLayoutEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { ViewportBaseProps, viewportsBase } from '../media-query';
+import React, { FC, ReactNode, useEffect, useLayoutEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { ViewportBaseProps, viewportsBase } from "../media-query";
 
 interface Props {
   breakpoints: { [view in ViewportBaseProps]?: ReactNode | string };
   content: ReactNode | string;
 }
 
-const canUseDOM = typeof window !== 'undefined';
+const canUseDOM = typeof window !== "undefined";
 const useIsomorphicLayoutEffect = canUseDOM ? useLayoutEffect : useEffect;
 
 export const ResponsiveElement: FC<Props> = ({ breakpoints, content }) => {
@@ -19,8 +19,14 @@ export const ResponsiveElement: FC<Props> = ({ breakpoints, content }) => {
   const isDesktop1920 = useMediaQuery({ maxWidth: viewportsBase.desktop1920.width });
   const isDesktop2560 = useMediaQuery({ maxWidth: viewportsBase.desktop2560.width });
 
+  const isMobileOrTabletVertical = useMediaQuery({
+    query: `(max-width: ${viewportsBase.desktop1280.width}px) and (orientation: portrait),
+         (max-width: ${viewportsBase.mobile.width}px),
+         (max-height: ${viewportsBase.mobile.width}px)`,
+  });
+
   useIsomorphicLayoutEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setClient(true);
     }
   }, []);
@@ -36,6 +42,10 @@ export const ResponsiveElement: FC<Props> = ({ breakpoints, content }) => {
 
     if (breakpoints.desktop1024 && isDesktop1024) {
       return breakpoints.desktop1024;
+    }
+
+    if (breakpoints.isMobileOrTabletVertical && isMobileOrTabletVertical) {
+      return breakpoints.isMobileOrTabletVertical;
     }
 
     if (breakpoints.desktop1440 && isDesktop1440) {

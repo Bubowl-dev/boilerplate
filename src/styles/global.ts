@@ -2,38 +2,28 @@ import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 import { mediaMaxWidth, viewportsBase } from "@/utils/media-query";
 
-const { desktop1024, desktop1920 } = viewportsBase;
+const { desktop1024, isMobileOrTabletVertical, desktop1920 } = viewportsBase;
 
 export const GlobalStyles = createGlobalStyle`
   * {
-    font-family: var(--gotham);
+    font-family: var(--instrumentSans);
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    cursor: none;
   }
 
   ::-webkit-scrollbar {
-    width: 5px;
-    background-color: ${theme.liverOrgan};
+    width: 0px;
     color: ${theme.black};
 
     ${mediaMaxWidth(900)`
-      width: 4px;
+      width: 0px;
     `}
-  }
 
-  ::-webkit-scrollbar-thumb {
-    background-color: ${theme.oriolesOrange};
-    border-radius: 20px;
-
-    &:hover {
-      background-color: ${theme.oriolesOrange};
-    }
-  }
-
-  html, body, #__next {
-    height: 100%;
-    overflow: hidden !important;
+    ${mediaMaxWidth("mobile")`
+      width: 0px;
+    `}
   }
 
   html {
@@ -43,25 +33,32 @@ export const GlobalStyles = createGlobalStyle`
     -ms-text-size-adjust: none;
     -webkit-text-size-adjust: none;
 
-    @media (max-width: ${desktop1024.width}px) {
-      font-size: calc(100vw / ${desktop1024.width} * 10);
+    @media (max-width: ${desktop1024.width}px)  {
+      font-size: calc(55vw / ${desktop1024.width} * 10);
     }
 
-    ${mediaMaxWidth("mobile")`
-      font-size: calc(100vw / ${414} * 10);
+    ${mediaMaxWidth("isMobileOrTabletVertical")`
+      @media (orientation: portrait) {
+        font-size: calc(115vw / ${isMobileOrTabletVertical.width} * 10);
+      }
+    `}
+
+    ${mediaMaxWidth("mobileVerticalHorizontal")`
+      font-size: calc(100vw / ${390} * 10);
+    `}
+
+    ${mediaMaxWidth("mobileHorizontal")`
+      font-size: calc(100vw / ${400} * 10);
     `}
   }
 
-  html, body, #__next, main {
-    height: 100%;
-  }
-
-  main {
-    overflow-y: auto;
-  }
-
   body {
-    overflow-x: hidden;
+    background: #151515;
+    position: relative;
+  }
+
+  main{
+    overflow: hidden;
   }
 
   li {
@@ -80,7 +77,7 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     padding: 0;
     font: inherit;
-    cursor: pointer;
+    cursor: none;
     outline: inherit;
   }
 
@@ -93,5 +90,9 @@ export const GlobalStyles = createGlobalStyle`
   .grecaptcha-badge {
     visibility: hidden;
     opacity: 0;
+  }
+
+  section{
+    opacity: 1;
   }
 `;

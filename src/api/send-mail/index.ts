@@ -4,7 +4,7 @@ import type { SendMailResponse } from "./response";
 
 export const sendMail = async (request: SendMailRequest): Promise<void> => {
   const payload = {
-    project: "dac-innenausbau-xi.vercel.app",
+    project: "https://andrade-gisper.vercel.app",
     attrs: [
       { content: request.name, field: 9 },
       { content: request.email, field: 11 },

@@ -1,41 +1,15 @@
-import TerserPlugin from "terser-webpack-plugin";
+import type { NextConfig } from "next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+const nextConfig: NextConfig = {
+  reactStrictMode: false,
   compiler: {
     styledComponents: true,
   },
-  trailingSlash: false,
-  swcMinify: true,
-
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.optimization.splitChunks = config.optimization.splitChunks || {};
-      config.optimization.splitChunks.cacheGroups = {
-        default: false,
-        vendors: false,
-        commons: {
-          name: "commons",
-          chunks: "all",
-          minChunks: 2,
-        },
-      };
-    }
-
-    config.optimization.minimize = true;
-    config.optimization.minimizer = [
-      new TerserPlugin({
-        parallel: true,
-      }),
-    ];
-
-    return config;
-  },
-
-  productionBrowserSourceMaps: false,
-
+  assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX,
+  trailingSlash: true,
   output: "export",
+  distDir: "build",
+  basePath: process.env.NEXT_PUBLIC_ASSET_PREFIX,
 };
 
 export default nextConfig;

@@ -1,4 +1,5 @@
 import { hankenGrotesk } from "./_hanken";
-import { inter } from "./_inter";
+import { instrumentSans } from "./_instrument";
+import { manrope } from "./_manrope";
 
-export const fontNames = `${hankenGrotesk.variable} ${inter.variable}`;
+export const fontNames = `${instrumentSans.variable} ${hankenGrotesk.variable} ${manrope.variable}`;
