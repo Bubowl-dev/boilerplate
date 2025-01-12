@@ -25,7 +25,6 @@ export const Loading = () => {
   return (
     <S.Loading $isActive={loading}>
       <S.Container>
-        <S.Img src="/imgs/icon.png" alt="loading" />
         <S.ProgressMensage>{progress}%</S.ProgressMensage>
       </S.Container>
     </S.Loading>

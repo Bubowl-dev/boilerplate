@@ -2,12 +2,11 @@
 
 import { Suspense, type ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { fontNames } from "@/styles/fonts";
-import { StyledComponentsRegistry } from "@/lib/registry";
-import { theme } from "@/styles/theme";
-import { GlobalStyles } from "@/styles/global";
+import { fontNames } from "@/config/styles/fonts";
+import { StyledComponentsRegistry } from "@/config/lib/registry";
+import { theme } from "@/config/styles/theme";
+import { GlobalStyles } from "@/config/styles/global";
 import { GSAPInitializer } from "@/components/atoms/gsap-initializer";
-import { Cursor } from "@/components/organisms/Cursor";
 
 const RootLayout = ({
   children,
@@ -22,9 +21,7 @@ const RootLayout = ({
             <GlobalStyles />
             <GSAPInitializer />
             <main>
-              <Suspense>
-                <Cursor>{children}</Cursor>
-              </Suspense>
+              <Suspense>{children}</Suspense>
             </main>
           </ThemeProvider>
         </StyledComponentsRegistry>

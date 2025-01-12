@@ -9,18 +9,20 @@
     "organisms": "node ./script/folder.js organisms",
     "svg": "node ./script/create-svg-icon.js",
     "page": "node ./script/create-page.js",
-    "dev": "next dev --turbopack",
+    "dev": "node ./script/dev.js",
     "build": "yarn convert-medias && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^15.1.4",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "formik": "^2.4.6",
     "global": "^4.4.0",
     "gsap": "^3.12.5",
     "next": "15.0.1",
+    "prompts": "^2.4.2",
     "react": "19.0.0-rc-69d4b800-20241021",
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "react-responsive": "^10.0.0",
@@ -29,6 +31,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.10.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

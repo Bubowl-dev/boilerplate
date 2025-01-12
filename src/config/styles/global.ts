@@ -10,7 +10,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    cursor: none;
   }
 
   ::-webkit-scrollbar {
@@ -77,7 +76,6 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     padding: 0;
     font: inherit;
-    cursor: none;
     outline: inherit;
   }
 

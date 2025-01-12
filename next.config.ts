@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: false,
   compiler: {
     styledComponents: true,
-    // removeConsole: true,
+    removeConsole: !!process.env.NEXT_PUBLIC_ASSET_PREFIX,
   },
   assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX,
   trailingSlash: true,
@@ -20,15 +20,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["react-icons/*"],
     nextScriptWorkers: true,
     turbo: {
-      resolveExtensions: [
-        ".mdx",
-        ".tsx",
-        ".ts",
-        ".jsx",
-        ".js",
-        ".mjs",
-        ".json",
-      ],
+      resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".mjs", ".json"],
     },
   },
 };

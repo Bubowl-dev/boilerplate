@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { LazyImage } from "../lazy-image";
 
 export const Loading = styled.div<{ $isActive: boolean }>`
   position: fixed;
@@ -23,8 +22,6 @@ export const Container = styled.div`
   padding: 5rem;
   border-radius: 50%;
 `;
-
-export const Img = styled(LazyImage)``;
 
 export const ProgressMensage = styled.p`
   position: absolute;
