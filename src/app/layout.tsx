@@ -8,7 +8,6 @@ import { theme } from "@/styles/theme";
 import { GlobalStyles } from "@/styles/global";
 import { GSAPInitializer } from "@/components/atoms/gsap-initializer";
 import { Cursor } from "@/components/organisms/Cursor";
-import Nav from "@/shared/nav";
 
 const RootLayout = ({
   children,
@@ -22,7 +21,6 @@ const RootLayout = ({
           <ThemeProvider theme={theme}>
             <GlobalStyles />
             <GSAPInitializer />
-            <Nav />
             <main>
               <Suspense>
                 <Cursor>{children}</Cursor>

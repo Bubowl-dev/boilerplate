@@ -7,6 +7,8 @@
     "atoms": "node ./script/folder.js atoms",
     "molecules": "node ./script/folder.js molecules",
     "organisms": "node ./script/folder.js organisms",
+    "svg": "node ./script/create-svg-icon.js",
+    "page": "node ./script/create-page.js",
     "dev": "next dev --turbopack",
     "build": "yarn convert-medias && next build",
     "start": "next start",
