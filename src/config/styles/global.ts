@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
-import { mediaMaxWidth, viewportsBase } from "@/utils/media-query";
+import { mediaMaxWidth, viewportsBase } from "@/config/utils/media-query";
 
 const { desktop1024, isMobileOrTabletVertical, desktop1920 } = viewportsBase;
 

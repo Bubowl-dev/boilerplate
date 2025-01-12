@@ -1,9 +1,9 @@
 import { forwardRef, Fragment, useMemo } from "react";
 import LazyImageProps from "./props";
 import * as S from "./styles";
-import replaceExtension from "@/utils/replace-extension";
+import replaceExtension from "@/config/utils/replace-extension";
 import Head from "next/head";
-import { viewportsBase } from "@/utils/media-query/viewport-base";
+import { viewportsBase } from "@/config/utils/media-query/viewport-base";
 
 export const LazyImage = forwardRef<HTMLImageElement, LazyImageProps>(
   ({ src, alt, notLazy, className, responsive, ...props }, ref) => {

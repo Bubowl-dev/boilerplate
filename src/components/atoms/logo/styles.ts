@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaMaxWidth } from "@/utils/media-query";
+import { mediaMaxWidth } from "@/config/utils/media-query";
 import _Link from "next/link";
 
 export const Link = styled(_Link)`

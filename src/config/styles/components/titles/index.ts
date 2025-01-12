@@ -1,4 +1,4 @@
-import { mediaMaxWidth } from "@/utils/media-query";
+import { mediaMaxWidth } from "@/config/utils/media-query";
 import { css } from "styled-components";
 
 export const TitleBig = css`

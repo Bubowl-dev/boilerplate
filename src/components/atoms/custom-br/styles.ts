@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { type CustomBrProps } from "./props";
-import { mediaMaxWidth, mediaMinWidth } from "@/utils/media-query";
+import { mediaMaxWidth, mediaMinWidth } from "@/config/utils/media-query";
 
 export const Br = styled.br<{
   $byMediaquery: CustomBrProps["byMediaquery"];
