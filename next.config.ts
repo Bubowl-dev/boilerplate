@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: false,
   compiler: {
     styledComponents: true,
-    removeConsole: !!process.env.NEXT_PUBLIC_ASSET_PREFIX,
+    removeConsole: process.env.NODE_ENV === "production",
   },
   assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX,
   trailingSlash: true,

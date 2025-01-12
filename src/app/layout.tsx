@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, type ReactNode } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "styled-components";
 import { fontNames } from "@/config/styles/fonts";
 import { StyledComponentsRegistry } from "@/config/lib/registry";
@@ -15,6 +16,10 @@ const RootLayout = ({
 }>): ReactNode => {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SEARCH} />
+      </head>
+
       <body className={fontNames}>
         <StyledComponentsRegistry>
           <ThemeProvider theme={theme}>
@@ -26,6 +31,8 @@ const RootLayout = ({
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
+
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || "G-XYZ"} />
     </html>
   );
 };
