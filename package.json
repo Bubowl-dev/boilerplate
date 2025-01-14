@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "zip": "zip -r build.zip out",
     "convert-medias": "node ./script/convert-to-webp.js",
     "convert-video": "node ./script/process-video.js",
     "atoms": "node ./script/folder.js atoms",
@@ -12,6 +13,8 @@
     "page": "node ./script/create-page.js",
     "dev": "node ./script/dev.js",
     "build": "yarn convert-medias && yarn convert-video && next build",
+    "publish": "yarn convert-medias && yarn convert-video && next build && yarn zip",
+    "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,6 +23,7 @@
     "@next/third-parties": "^15.1.4",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
+    "ffmpeg-static": "^5.2.0",
     "formik": "^2.4.6",
     "global": "^4.4.0",
     "gsap": "^3.12.5",
